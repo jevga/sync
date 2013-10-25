@@ -1,0 +1,45 @@
+<html>
+<head>
+	<meta charset='utf-8' />
+	<meta name='format-detection' content='telephone=no' />
+	<meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi' />
+	<title></title>
+	<style>
+	.hide { display: none }
+	img.preview {
+		max-height: 100px;
+		max-width: 200px;
+		border: 1px solid #ccc;
+	}
+	a {
+		font-size: 2em;
+	}
+	</style>
+	<script type='text/javascript' src='phonegap.js' charset='UTF-8'></script>
+	<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js' charset='UTF-8'></script>
+	<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js' charset='UTF-8'></script>
+	<script type='text/javascript' src='js/html.js' charset='UTF-8'></script>
+	<script type='text/javascript' src='js/data.js' charset='UTF-8'></script>
+	<script type='text/javascript' src='js/file.js' charset='UTF-8'></script>
+	<script type='text/javascript' src='js/image.js' charset='UTF-8'></script>
+	<script type='text/javascript' src='js/main.js' charset='UTF-8'></script>
+	<script>
+	window.onload = init;
+	</script>
+</head>
+<body>
+
+<div id='main' class='hides'>
+
+<span id='result'>-</span><br />
+<a href='#' onclick='addImageFromCamera();'>Camera</a><br />
+<a href='#' onclick='addImageFromGalery();'>Photo Album</a><br />
+<a href='#' onclick='addImageFromBrowse();'>Pievienot attēlu</a><br />
+
+<span id='list'></span>
+<img id='loader' src='images/ajax-loader.gif' class='hide' />
+
+</div>
+
+</body>
+</html>

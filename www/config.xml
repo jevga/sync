@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.jevga.photoSync"
+        version   = "1.0.0">
+
+    <name>Photo Sync</name>
+
+    <description>
+        Photo sync with others by hash
+    </description>
+
+    <author email="jevgenijs.dzerins@gmail.com">
+        Jevga
+    </author>
+
+    <preference name="phonegap-version" value="2.9.0" /> 
+
+    <!-- phonegap 2.9.0 no plug-in include required -->
+    <!-- phonegap 3.0.0 plug-in include required -->
+    <!--<gap:plugin name="org.apache.cordova.core.camera" />-->
+</widget>
