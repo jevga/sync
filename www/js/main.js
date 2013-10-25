@@ -18,7 +18,6 @@ function addImageFromBrowse() {
 
 function addImageFromCamera() {
 	show('loader');
-	debugger;
 	Image.prototype.getDataFromCamera(addImage);
 }
 
