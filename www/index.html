@@ -17,24 +17,40 @@
 	body {
 		background-color: #45aa50;
 	}
-	img.preview {
-		max-height: 200px;
-		max-width: 300px;
+	.preview {
+		display: inline-block;
+		height: 150px;
+		width: 200px;
 		border: 0.25em solid #fff;
+		background-color: #252a30;
+		text-align: center;
 		margin: 0.5em;
 		padding: 0.25em;
 	}
-	a { font-size: 2em; }
-	.camera, .galery {
+	.preview .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+	}
+	.preview img {
+		vertical-align: middle;
+		max-height: 150px;
+		max-width: 200px;
+	}	
+	a {
+		font-size: 2em;
+		text-decoration: none;
+	}
+	.camera, .gallery {
 		display: inline-block;
-		width: 32px;
-		height: 32px;
+		width: 128px;
+		height: 102px;
 	}
 	.camera {
-		background:url(images/icons.png) -385px -135px;
+		background: #fd0 url(images/camera-128.png) 0px -13px;
 	}
-	.galery {
-		background:url(images/icons.png) -652px -64px;
+	.gallery {
+		background: #0df url(images/gallery-128.png);
 	}
 	</style>
 	<script type='text/javascript' src='phonegap.js' charset='UTF-8'></script>
@@ -54,8 +70,8 @@
 <div id='main' class='hides'>
 <div class='menu'>
 <a id='camera' href='#' onclick='addImageFromCamera();' class='camera'>&nbsp;</a>
-<a id='galery' href='#' onclick='addImageFromGalery();' class='galery'>&nbsp;</a>
-<a id='browse' href='#' onclick='addImageFromBrowse();' class='galery'>&nbsp;</a>
+<a id='gallery' href='#' onclick='addImageFromGalery();' class='gallery'>&nbsp;</a>
+<a id='browse' href='#' onclick='addImageFromBrowse();' class='gallery'>&nbsp;</a>
 </div>
 <div id='list' class='list'></div>
 <img id='loader' src='images/ajax-loader.gif' class='hide' />

@@ -2,7 +2,6 @@ var imageList;
 
 //  Data method
 function addImage(data) {
-	alert(data.length);
 	var id = 'img_' + Math.floor(Math.random() * 100000000);
 	imageList.add(id, data);
 	hide('loader');
@@ -31,15 +30,26 @@ function delImage() {
 }
 
 //  HTML methods
+function showFullImage() {
+	
+}
 function showImage(id, data) {
-	var img = add$('list', 'img', id);
-	img.className = 'preview';
+	var div = add$('list', 'div', 'div_' + id);
+	div.className = 'preview';
+
+	var span = add$(div, 'span', 'span_' + id);
+	span.className = 'helper';
+	
+	var img = add$(div, 'img', id);
 	img.src = data;
-	img.onclick = delImage;
+	img.onclick = showFullImage;
+	img.ondblclick = delImage;
 }
 
 function hideImage(id, data) {
 	del$(id);
+	del$('span_' + id);
+	del$('div_' + id);
 }
 
 function changeImage(id, data) {
@@ -55,12 +65,12 @@ function init() {
 function load() {
 	if (isMobile()) {
 		show('camera');
-		show('galery');
+		show('gallery');
 		hide('browse');
 		document.addEventListener('deviceready', init, false);
 	} else {
 		hide('camera');
-		hide('galery');
+		hide('gallery');
 		show('browse');
 		init();
 	}
