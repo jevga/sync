@@ -29,14 +29,17 @@ Image.prototype.get = function(params, onSuccess, onFail) {
 }
 
 Image.prototype.getDataFromCamera = function(onSuccess, onFail) {
+	alert(1);
 	var params = {
 		quality: Image.prototype.params.quality,
 		destinationType: Camera.DestinationType.DATA_URI,
 		sourceType: pictureSource.CAMERA
 	};
+	alert(2);
 	Image.prototype.getPhoto(
 		params,
 		function(data) {
+			alert(3);
 			var data = 'data:image/jpeg;base64,' + data;
 			onSuccess(data);
 		},
