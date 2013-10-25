@@ -53,5 +53,15 @@ function init() {
 }
 
 function load() {
-	document.addEventListener('deviceready', init, false);
+	if (isMobile()) {
+		show('camera');
+		show('galery');
+		hide('browse');
+		document.addEventListener('deviceready', init, false);
+	} else {
+		hide('camera');
+		hide('galery');
+		show('browse');
+		init();
+	}
 }

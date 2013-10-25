@@ -1,3 +1,9 @@
+function isMobile() {
+    return (typeof cordova != 'undefined' || typeof PhoneGap != 'undefined' || typeof phonegap != 'undefined') 
+    && /^file:\/{3}[^\/]/i.test(window.location.href) 
+    && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
+}
+
 /*  DOM methods  */
 function $(id) {
 	return typeof id == 'string' ? document.getElementById(id) : id;

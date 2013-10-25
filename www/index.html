@@ -5,14 +5,36 @@
 	<meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi' />
 	<title></title>
 	<style>
-	.hide { display: none }
-	img.preview {
-		max-height: 100px;
-		max-width: 200px;
-		border: 1px solid #ccc;
+	* {
+		padding: 0;
+		margin: 0;
 	}
-	a {
-		font-size: 2em;
+	.hide { display: none !important; }
+	.menu {
+		padding: 0.25em;
+		background-color: #252a30;
+	}
+	body {
+		background-color: #45aa50;
+	}
+	img.preview {
+		max-height: 200px;
+		max-width: 300px;
+		border: 0.25em solid #fff;
+		margin: 0.5em;
+		padding: 0.25em;
+	}
+	a { font-size: 2em; }
+	.camera, .galery {
+		display: inline-block;
+		width: 32px;
+		height: 32px;
+	}
+	.camera {
+		background:url(images/icons.png) -385px -135px;
+	}
+	.galery {
+		background:url(images/icons.png) -652px -64px;
 	}
 	</style>
 	<script type='text/javascript' src='phonegap.js' charset='UTF-8'></script>
@@ -24,19 +46,18 @@
 	<script type='text/javascript' src='js/image.js' charset='UTF-8'></script>
 	<script type='text/javascript' src='js/main.js' charset='UTF-8'></script>
 	<script>
-	window.onload = init;
+	window.onload = load;
 	</script>
 </head>
 <body>
 
 <div id='main' class='hides'>
-
-<span id='result'>-</span><br />
-<a href='#' onclick='addImageFromCamera();'>Camera</a><br />
-<a href='#' onclick='addImageFromGalery();'>Photo Album</a><br />
-<a href='#' onclick='addImageFromBrowse();'>Pievienot attēlu</a><br />
-
-<span id='list'></span>
+<div class='menu'>
+<a id='camera' href='#' onclick='addImageFromCamera();' class='camera'>&nbsp;</a>
+<a id='galery' href='#' onclick='addImageFromGalery();' class='galery'>&nbsp;</a>
+<a id='browse' href='#' onclick='addImageFromBrowse();' class='galery'>&nbsp;</a>
+</div>
+<div id='list' class='list'></div>
 <img id='loader' src='images/ajax-loader.gif' class='hide' />
 
 </div>
