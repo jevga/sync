@@ -31,7 +31,7 @@ Image.prototype.getPicture = function(params, onSuccess, onFail) {
 Image.prototype.getDataFromCamera = function(onSuccess, onFail) {
 	alert(1);
 	var params = {
-		quality: Image.prototype.params.quality
+		quality: Image.prototype.params.quality,
 		destinationType: Camera.DestinationType.DATA_URI,
 		sourceType: Camera.PictureSourceType.CAMERA
 	};
