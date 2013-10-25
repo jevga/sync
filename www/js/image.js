@@ -17,7 +17,7 @@ Image.prototype.onFail = function(msg) {
 	alert(msg);
 }
 
-Image.prototype.get = function(params, onSuccess, onFail) {
+Image.prototype.getPicture = function(params, onSuccess, onFail) {
 	params = params ? params : {};
 	params.quality = params.quality ? params.quality : Image.prototype.params.quality;
 
@@ -31,12 +31,12 @@ Image.prototype.get = function(params, onSuccess, onFail) {
 Image.prototype.getDataFromCamera = function(onSuccess, onFail) {
 	alert(1);
 	var params = {
-		quality: Image.prototype.params.quality,
+		quality: Image.prototype.params.quality
 		destinationType: Camera.DestinationType.DATA_URI,
 		sourceType: Camera.PictureSourceType.CAMERA
 	};
 	alert(2);
-	Image.prototype.getPhoto(
+	Image.prototype.getPicture(
 		params,
 		function(data) {
 			alert(3);
@@ -53,7 +53,7 @@ Image.prototype.getDataFromGalery = function(onSuccess, onFail) {
 		destinationType: Camera.DestinationType.DATA_URI,
 		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
 	};
-	Image.prototype.getPhoto(
+	Image.prototype.getPicture(
 		params,
 		function(data) {
 			var data = 'data:image/jpeg;base64,' + data;
