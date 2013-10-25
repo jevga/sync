@@ -18,12 +18,13 @@ function addImageFromBrowse() {
 
 function addImageFromCamera() {
 	show('loader');
-	Image.prototyle.getDataFromCamera(addImage);
+	debugger;
+	Image.prototype.getDataFromCamera(addImage);
 }
 
 function addImageFromGalery() {
 	show('loader');
-	Image.prototyle.getDataFromGalery(addImage);
+	Image.prototype.getDataFromGalery(addImage);
 }
 
 function delImage() {
