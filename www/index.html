@@ -10,19 +10,22 @@
 		margin: 0;
 	}
 	.hide { display: none !important; }
-	.menu {
-		padding: 0.25em;
-		background-color: #252a30;
-	}
 	body {
-		background-color: #45aa50;
+		background-color: #252a30;
+		background-repeat: repeat-x;
+		background:        -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#fff));
+		background: -webkit-linear-gradient(top, #ccc, #fff);
+		background:    -moz-linear-gradient(top, #ccc, #fff);
+		background:     -ms-linear-gradient(top, #ccc, #fff);
+		background:      -o-linear-gradient(top, #ccc, #fff);
 	}
 	.preview {
+		position: relative;
 		display: inline-block;
 		height: 150px;
 		width: 200px;
-		border: 0.25em solid #fff;
-		background-color: #252a30;
+		border: 0.25em solid #252a30;
+		background-color: #fff;
 		text-align: center;
 		margin: 0.5em;
 		padding: 0.25em;
@@ -32,25 +35,55 @@
     height: 100%;
     vertical-align: middle;
 	}
+	.preview .sync {
+		position: absolute;
+		display: inline-block;
+		width: 32px;
+		height: 32px;
+		right: 5px;
+		bottom: 5px;
+		border: 0;
+		background: transparent url(images/sync-32.png) center center no-repeat;
+	}
 	.preview img {
 		vertical-align: middle;
 		max-height: 150px;
 		max-width: 200px;
-	}	
+	}
 	a {
 		font-size: 2em;
 		text-decoration: none;
 	}
+
+	.menu {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+
+		background-color: #252a30;
+		background-repeat: repeat-x;
+		background:        -webkit-gradient(linear, 0% 0%, 0% 100%, from(#656a70), to(#252a30));
+		background: -webkit-linear-gradient(top, #656a70, #252a30);
+		background:    -moz-linear-gradient(top, #656a70, #252a30);
+		background:     -ms-linear-gradient(top, #656a70, #252a30);
+		background:      -o-linear-gradient(top, #656a70, #252a30);
+	}
 	.camera, .gallery {
 		display: inline-block;
-		width: 64px;
-		height: 51px;
+		width: 49%;
+		height: 64px;
+		padding: 0.25em 0;
+		border-left: 1px solid #656a70;
+		border-right: 1px solid #252a30;
+		float: left;
 	}
 	.camera {
-		background: #fd0 url(images/camera-64.png) 0px -6px;
+		background: url(images/camera-64.png) center center no-repeat;
 	}
 	.gallery {
-		background: #0df url(images/gallery-64.png);
+		background: url(images/gallery-64.png) center center no-repeat;
 	}
 	</style>
 	<script type='text/javascript' src='phonegap.js' charset='UTF-8'></script>
@@ -69,14 +102,15 @@
 
 <div id='main' class='hides'>
 <div class='menu'>
-<a id='camera' href='#' onclick='addImageFromCamera();' class='camera'>&nbsp;</a>
-<a id='gallery' href='#' onclick='addImageFromGalery();' class='gallery'>&nbsp;</a>
-<a id='browse' href='#' onclick='addImageFromBrowse();' class='gallery'>&nbsp;</a>
+	<a id='camera' href='#' onclick='addImageFromCamera();' class='camera'>&nbsp;</a>
+	<a id='gallery' href='#' onclick='addImageFromGalery();' class='gallery'>&nbsp;</a>
+	<a id='browse' href='#' onclick='addImageFromBrowse();' class='gallery'>&nbsp;</a>
 </div>
 <div id='list' class='list'></div>
 <div id='loader' class='preview hide' style='background-color: #d7f2f6'>
 	<span class='helper'></span>
 	<img src='images/ajax-loader.gif' />
+	<img src='images/sync-32.png' class='sync' />
 </div>
 
 </div>

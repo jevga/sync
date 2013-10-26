@@ -3,25 +3,26 @@ var imageList;
 //  Data method
 function addImage(data) {
 	var id = 'img_' + Math.floor(Math.random() * 100000000);
-	imageList.add(id, data);
-	hide('loader');
+	showImage(id, data);
+	imageList.add(id, data, true);
+	//hide('loader');
 }
 function addImageFromBrowse() {
 	File.prototype.browseAsDataURL(
 		function() {
-			show('loader');
+			//show('loader');
 		},
 		addImage
 	);
 }
 
 function addImageFromCamera() {
-	show('loader');
+	//show('loader');
 	Image.prototype.getDataFromCamera(addImage);
 }
 
 function addImageFromGalery() {
-	show('loader');
+	//show('loader');
 	Image.prototype.getDataFromGalery(addImage);
 }
 
@@ -33,22 +34,33 @@ function delImage() {
 function showFullImage() {
 	
 }
-function showImage(id, data) {
-	var div = add$('list', 'div', 'div_' + id);
-	div.className = 'preview';
+function showImage(id, data, showSync) {
+	var div_id = 'div_' + id;
+	var sync_id = 'sync_' + id;
+	var helper_id = 'helper_' + id;
+	if (!$(div_id)) {
+		var div = add$('list', 'div', div_id);
+		div.className = 'preview';
 
-	var span = add$(div, 'span', 'span_' + id);
-	span.className = 'helper';
-	
-	var img = add$(div, 'img', id);
+		var span = add$(div, 'span', helper_id);
+		span.className = 'helper';
+
+		var span = add$(div, 'span', sync_id);
+		span.className = 'sync';
+		span.innerHTML = '&nbsp;';
+
+		var img = add$(div, 'img', id);
+		img.onclick = showFullImage;
+		img.ondblclick = delImage;
+	}
+	showHide(sync_id, showSync);
 	img.src = data;
-	img.onclick = showFullImage;
-	img.ondblclick = delImage;
 }
 
 function hideImage(id, data) {
 	del$(id);
-	del$('span_' + id);
+	del$('helper_' + id);
+	del$('sync_' + id);
 	del$('div_' + id);
 }
 
