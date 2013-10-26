@@ -10,7 +10,7 @@
 		margin: 0;
 	}
 	.hide { display: none !important; }
-	body {
+	.container {
 		background-color: #252a30;
 		background-repeat: repeat-x;
 		background:        -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#fff));
@@ -18,6 +18,12 @@
 		background:    -moz-linear-gradient(top, #ccc, #fff);
 		background:     -ms-linear-gradient(top, #ccc, #fff);
 		background:      -o-linear-gradient(top, #ccc, #fff);
+		
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin-bottom: 100px;
 	}
 	.preview {
 		position: relative;
@@ -106,11 +112,8 @@
 	<a id='gallery' href='#' onclick='addImageFromGalery();' class='gallery'>&nbsp;</a>
 	<a id='browse' href='#' onclick='addImageFromBrowse();' class='gallery'>&nbsp;</a>
 </div>
-<div id='list' class='list'></div>
-<div id='loader' class='preview hide' style='background-color: #d7f2f6'>
-	<span class='helper'></span>
-	<img src='images/ajax-loader.gif' />
-	<img src='images/sync-32.png' class='sync' />
+<div class='container'>
+	<div id='list' class='list' style='height: 1000px; border: 1px solid red'>asdf</div>
 </div>
 
 </div>

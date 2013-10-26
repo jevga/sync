@@ -4,7 +4,7 @@ var imageList;
 function addImage(data) {
 	var id = 'img_' + Math.floor(Math.random() * 100000000);
 	showImage(id, data, true);
-	//imageList.add(id, data);
+	imageList.add(id, data);
 	//hide('loader');
 }
 function addImageFromBrowse() {
@@ -81,8 +81,8 @@ function load() {
 		hide('browse');
 		document.addEventListener('deviceready', init, false);
 	} else {
-		show('camera');
-		show('gallery');
+		hide('camera');
+		hide('gallery');
 		show('browse');
 		init();
 	}
