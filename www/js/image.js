@@ -3,7 +3,7 @@ function Image() {
 
 //  Constants
 Image.prototype.params = {
-	quality: 100
+	quality: 50
 //	destinationType: Camera.DestinationType.DATA_URL,  //  DATA_URL, FILE_URI
 //	sourceType: pictureSource.SAVEDPHOTOALBUM  //  PHOTOLIBRARY, CAMERA, PHOTOLIBRARY
 };
@@ -22,7 +22,16 @@ Image.prototype.getPicture = function(params, onSuccess, onFail) {
 	params.quality = params.quality ? params.quality : Image.prototype.params.quality;
 
 	navigator.camera.getPicture(
-		onSuccess ? onSuccess : Image.prototype.onSuccess,
+		function(data) {
+			if (params.destinationType == Camera.DestinationType.DATA_URL) {
+				data = 'data:image/jpeg;base64,' + data;
+			}
+			if (onSuccess) {
+				onSuccess(data);
+			} else {
+				Image.prototype.onSuccess(data);
+			}
+		}
 		onFail ? onFail : Image.prototype.onFail,
 		params
 	); 
@@ -31,31 +40,17 @@ Image.prototype.getPicture = function(params, onSuccess, onFail) {
 Image.prototype.getDataFromCamera = function(onSuccess, onFail) {
 	var params = {
 		quality: Image.prototype.params.quality,
-		destinationType: Camera.DestinationType.DATA_URL,
+		destinationType: Camera.DestinationType.FILE_URI,
 		sourceType: Camera.PictureSourceType.CAMERA
 	};
-	Image.prototype.getPicture(
-		params,
-		function(data) {
-			var data = 'data:image/jpeg;base64,' + data;
-			onSuccess(data);
-		},
-		onFail
-	);
+	Image.prototype.getPicture(params, onSuccess, onFail);
 }
 
 Image.prototype.getDataFromGalery = function(onSuccess, onFail) {
 	var params = {
 		quality: Image.prototype.params.quality,
-		destinationType: Camera.DestinationType.DATA_URL,
+		destinationType: Camera.DestinationType.FILE_URI,
 		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
 	};
-	Image.prototype.getPicture(
-		params,
-		function(data) {
-			var data = 'data:image/jpeg;base64,' + data;
-			onSuccess(data);
-		},
-		onFail
-	);
+	Image.prototype.getPicture(params, onSuccess, onFail);
 }
