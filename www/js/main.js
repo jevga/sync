@@ -3,8 +3,8 @@ var imageList;
 //  Data method
 function addImage(data) {
 	var id = 'img_' + Math.floor(Math.random() * 100000000);
-	showImage(id, data);
-	//imageList.add(id, data, true);
+	showImage(id, data, true);
+	//imageList.add(id, data);
 	//hide('loader');
 }
 function addImageFromBrowse() {
