@@ -81,8 +81,8 @@ function load() {
 		hide('browse');
 		document.addEventListener('deviceready', init, false);
 	} else {
-		hide('camera');
-		hide('gallery');
+		show('camera');
+		show('gallery');
 		show('browse');
 		init();
 	}
