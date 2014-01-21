@@ -67,7 +67,7 @@ Image.prototype.getDataFromCamera = function(onSuccess, onFail) {
 debugger;
 	var params = {
 		quality: Image.prototype.params.quality,
-		destinationType: Camera.DestinationType.FILE_URI,
+		destinationType: Camera.DestinationType.DATA_URL,
 		sourceType: Camera.PictureSourceType.CAMERA
 	};
 	Image.prototype.getPicture(params, onSuccess, onFail);
@@ -77,7 +77,7 @@ Image.prototype.getDataFromGalery = function(onSuccess, onFail) {
 debugger;
 	var params = {
 		quality: Image.prototype.params.quality,
-		destinationType: Camera.DestinationType.FILE_URI,
+		destinationType: Camera.DestinationType.DATA_URL,
 		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
 	};
 	Image.prototype.getPicture(params, onSuccess, onFail);
